@@ -1,0 +1,7 @@
+{
+  "name": "متدوسش",
+  "description": "موقع مقلب مصري تفاعلي - متدوسش على النقطة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

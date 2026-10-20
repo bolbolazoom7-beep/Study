@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-color: #050407;
+    --purple-main: #A855F7;
+    --purple-deep: #6D28D9;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: #FFFFFF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans Arabic', 'Geeza Pro', 'Traditional Arabic', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+/* Gentle pulsing for the initial tiny dot */
+@keyframes dotBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    box-shadow: 0 0 6px 1px #A855F7, 0 0 12px 2px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    box-shadow: 0 0 12px 3px #A855F7, 0 0 24px 6px rgba(168, 85, 247, 0.75);
+  }
+}
+
+.animate-dot-pulse {
+  animation: dotBreathe 2.2s ease-in-out infinite;
+}
+
+/* Screen Shakes */
+@keyframes shakeLight {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(2px, 1px); }
+}
+
+@keyframes shakeMedium {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  15% { transform: translate(-5px, 3px) rotate(-0.5deg); }
+  35% { transform: translate(6px, -4px) rotate(0.6deg); }
+  55% { transform: translate(-4px, 5px) rotate(-0.4deg); }
+  75% { transform: translate(4px, -2px) rotate(0.3deg); }
+  90% { transform: translate(-2px, 1px) rotate(-0.1deg); }
+}
+
+@keyframes shakeHeavy {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-9px, 6px) rotate(-1.2deg); }
+  25% { transform: translate(11px, -8px) rotate(1.4deg); }
+  40% { transform: translate(-10px, 9px) rotate(-1deg); }
+  60% { transform: translate(8px, -6px) rotate(0.8deg); }
+  80% { transform: translate(-5px, 4px) rotate(-0.5deg); }
+  95% { transform: translate(2px, -1px) rotate(0.2deg); }
+}
+
+@keyframes shakeIntense {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  10% { transform: translate(-15px, 10px) scale(1.02) rotate(-2deg); }
+  20% { transform: translate(16px, -12px) scale(0.99) rotate(2.2deg); }
+  35% { transform: translate(-14px, 14px) scale(1.01) rotate(-1.8deg); }
+  50% { transform: translate(12px, -10px) scale(1.01) rotate(1.4deg); }
+  65% { transform: translate(-9px, 8px) scale(1) rotate(-1deg); }
+  80% { transform: translate(6px, -5px) scale(1) rotate(0.6deg); }
+  95% { transform: translate(-2px, 2px) scale(1) rotate(-0.2deg); }
+}
+
+.shake-light {
+  animation: shakeLight 0.24s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.shake-medium {
+  animation: shakeMedium 0.32s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.shake-heavy {
+  animation: shakeHeavy 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.shake-intense {
+  animation: shakeIntense 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Purple Flash */
+@keyframes purpleFlashAnim {
+  0% { opacity: 0; }
+  20% { opacity: 0.92; background-color: #A855F7; }
+  45% { opacity: 0.65; background-color: #6D28D9; }
+  100% { opacity: 0; }
+}
+
+.animate-purple-flash {
+  animation: purpleFlashAnim 0.45s ease-out forwards;
+}
+
+/* Ripple effect expanding from center */
+@keyframes rippleAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation: rippleAnim 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(109, 40, 217, 0.15) 50%, transparent 75%);
+  border: 1.5px solid rgba(168, 85, 247, 0.6);
+}
+
+/* Neon Glows */
+.neon-glow-text {
+  text-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.9),
+    0 0 25px rgba(168, 85, 247, 0.7),
+    0 0 50px rgba(109, 40, 217, 0.6);
+}
+
+.neon-glow-subtext {
+  text-shadow: 
+    0 0 8px rgba(192, 132, 252, 0.8),
+    0 0 20px rgba(109, 40, 217, 0.5);
+}
+
+.punch-line-1 {
+  text-shadow: 
+    0 0 14px rgba(239, 68, 68, 0.8),
+    0 0 35px rgba(168, 85, 247, 0.9),
+    0 0 60px rgba(109, 40, 217, 0.7);
+}
+
+.punch-line-2 {
+  text-shadow: 
+    0 0 12px rgba(168, 85, 247, 0.85),
+    0 0 30px rgba(109, 40, 217, 0.7);
+}
+
+.punch-line-3 {
+  text-shadow: 
+    0 0 10px rgba(192, 132, 252, 0.8),
+    0 0 24px rgba(109, 40, 217, 0.5);
+}
+
+/* Warning Circle Glow */
+.warning-circle-glow {
+  box-shadow: 
+    0 0 40px 10px rgba(168, 85, 247, 0.5),
+    0 0 90px 25px rgba(109, 40, 217, 0.35),
+    inset 0 0 40px 15px rgba(168, 85, 247, 0.4);
+}
+
+/* Subtle ambient pulse for final screen */
+@keyframes ambientGlowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+.animate-ambient-glow {
+  animation: ambientGlowPulse 4s ease-in-out infinite;
+}
